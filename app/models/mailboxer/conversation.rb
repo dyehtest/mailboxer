@@ -7,6 +7,8 @@ class Mailboxer::Conversation < ActiveRecord::Base
   has_many :messages, :dependent => :destroy, :class_name => "Mailboxer::Message"
   has_many :receipts, :through => :messages,  :class_name => "Mailboxer::Receipt"
 
+  belongs_to :conversationable, polymorphic: true
+
   validates :subject, :presence => true,
                       :length => { :maximum => Mailboxer.subject_max_length }
 
