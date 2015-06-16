@@ -55,6 +55,12 @@ class Mailboxer::Mailbox
     conversations(options)
   end
 
+  def untrash(options={})
+    options = options.merge(:mailbox_type => 'inbox')
+    options = options.merge(:mailbox_type => 'sentbox')
+    conversations(options)
+  end
+
   #Returns the conversations in the trash of messageable
   #
   #Same as conversations({:mailbox_type => 'trash'})
