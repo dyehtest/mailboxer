@@ -1,3 +1,3 @@
 class Mailboxer::AttachmentUploader < CarrierWave::Uploader::Base
-  storage :file
+  storage :fog
 end
