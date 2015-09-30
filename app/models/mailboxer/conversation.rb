@@ -1,6 +1,4 @@
 class Mailboxer::Conversation < ActiveRecord::Base
-  default_scope { where.not(conversationable_type: 'ContractApplication') }
-
   self.table_name = :mailboxer_conversations
 
   attr_accessible :subject if Mailboxer.protected_attributes?
@@ -36,6 +34,7 @@ class Mailboxer::Conversation < ActiveRecord::Base
   scope :not_trash,  lambda {|participant|
     participant(participant).merge(Mailboxer::Receipt.not_trash)
   }
+  scope :not_interview, -> { where.not(conversationable_type: 'ContractApplication') }
 
   #Mark the conversation as read for one of the participants
   def mark_as_read(participant)

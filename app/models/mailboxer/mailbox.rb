@@ -117,15 +117,15 @@ class Mailboxer::Mailbox
   def get_conversations(mailbox)
     case mailbox
     when 'inbox'
-      Mailboxer::Conversation.inbox(messageable)
+      Mailboxer::Conversation.not_interview.inbox(messageable)
     when 'sentbox'
-      Mailboxer::Conversation.sentbox(messageable)
+      Mailboxer::Conversation.not_interview.sentbox(messageable)
     when 'trash'
-      Mailboxer::Conversation.trash(messageable)
+      Mailboxer::Conversation.not_interview.trash(messageable)
     when 'not_trash'
-      Mailboxer::Conversation.not_trash(messageable)
+      Mailboxer::Conversation.not_interview.not_trash(messageable)
     else
-      Mailboxer::Conversation.participant(messageable)
+      Mailboxer::Conversation.not_interview.participant(messageable)
     end
   end
 end
