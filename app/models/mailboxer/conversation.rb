@@ -1,4 +1,6 @@
 class Mailboxer::Conversation < ActiveRecord::Base
+  default_scope { where.not(conversationable_type: 'ContractApplication') }
+
   self.table_name = :mailboxer_conversations
 
   attr_accessible :subject if Mailboxer.protected_attributes?

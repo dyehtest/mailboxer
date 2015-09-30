@@ -122,7 +122,7 @@ class Mailboxer::Mailbox
       Mailboxer::Conversation.sentbox(messageable)
     when 'trash'
       Mailboxer::Conversation.trash(messageable)
-    when  'not_trash'
+    when 'not_trash'
       Mailboxer::Conversation.not_trash(messageable)
     else
       Mailboxer::Conversation.participant(messageable)
