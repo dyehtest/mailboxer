@@ -6,7 +6,8 @@ CarrierWave.configure do |config|
     provider: 'AWS',
     aws_access_key_id: AMAZON[Rails.env]['access_key_id'],
     aws_secret_access_key: AMAZON[Rails.env]['secret_access_key'],
-    region: AMAZON[Rails.env]['region']
+    region: AMAZON[Rails.env]['region'],
+    path_style: true
   }
 
   config.fog_directory  = AMAZON[Rails.env]['bucket']
