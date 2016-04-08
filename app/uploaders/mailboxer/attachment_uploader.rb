@@ -2,7 +2,7 @@ class Mailboxer::AttachmentUploader < CarrierWave::Uploader::Base
   storage :fog
 
   def store_dir
-    "message/#{model.id}/attachment"
+    "public/messages/#{model.id}/attachment"
   end
 
   def extension_white_list
