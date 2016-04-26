@@ -101,9 +101,9 @@ module Mailboxer
         response.deliver true, sanitize_text
       end
 
-      #Replies to the sender of the message in the conversation
-      def reply_to_sender(receipt, reply_body, subject=nil, sanitize_text=true, attachment=nil)
-        reply(receipt.conversation, receipt.message.sender, reply_body, subject, sanitize_text, attachment)
+      # Replies to the sender of the message in the conversation
+      def reply_to_sender(conversation, sender, reply_body, subject=nil, sanitize_text=true, attachment=nil)
+        reply(conversation, sender, reply_body, subject, sanitize_text, attachment)
       end
 
       #Replies to all the recipients of the message in the conversation
