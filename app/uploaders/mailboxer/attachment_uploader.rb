@@ -5,7 +5,7 @@ class Mailboxer::AttachmentUploader < CarrierWave::Uploader::Base
     "public/messages/#{model.id}/attachment"
   end
 
-  def extension_white_list
-    %w(jpg jpeg png pdf)
-  end
+  # def extension_white_list
+  #   %w(jpg jpeg png pdf)
+  # end
 end
