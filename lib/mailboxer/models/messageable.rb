@@ -123,6 +123,16 @@ module Mailboxer
         reply(conversation, conversation.last_message.recipients, reply_body, subject, sanitize_text, attachment)
       end
 
+      def reply_to_conversation_participants(conversation, reply_body, subject=nil, should_untrash=false, sanitize_text=true, attachment=nil)
+        # reply to participants in the conversation
+        if should_untrash && mailbox.is_trashed?(conversation)
+          mailbox.receipts_for(conversation).untrash
+          mailbox.receipts_for(conversation).mark_as_not_deleted
+        end
+
+        reply(conversation, conversation.participants, reply_body, subject, sanitize_text, attachment)
+      end
+
       #Mark the object as read for messageable.
       #
       #Object can be:
