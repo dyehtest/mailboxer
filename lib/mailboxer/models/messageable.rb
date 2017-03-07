@@ -120,7 +120,7 @@ module Mailboxer
           mailbox.receipts_for(conversation).mark_as_not_deleted
         end
 
-        reply(conversation, conversation.last_message.recipients, reply_body, subject, sanitize_text, attachment)
+        reply(conversation, conversation.participants, reply_body, subject, sanitize_text, attachment)
       end
 
       #Mark the object as read for messageable.
