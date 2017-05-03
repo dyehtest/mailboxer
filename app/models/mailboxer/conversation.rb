@@ -107,6 +107,11 @@ class Mailboxer::Conversation < ActiveRecord::Base
     Mailboxer::Receipt.conversation(self).recipient(participant)
   end
 
+  #Returns the unread receipts of the conversation for one participants
+  def unread_receipts_for(participant)
+    Mailboxer::Receipt.is_unread.conversation(self).recipient(participant)
+  end
+
   #Returns the number of messages of the conversation
   def count_messages
     Mailboxer::Message.conversation(self).count
