@@ -2,6 +2,9 @@ class Mailboxer::Message < Mailboxer::Notification
   attr_accessible :attachment if Mailboxer.protected_attributes?
   self.table_name = :mailboxer_notifications
 
+  # method in gem socialization
+  acts_as_mentioner
+
   belongs_to :conversation, :class_name => "Mailboxer::Conversation", :validate => true, :autosave => true
   validates_presence_of :sender
 
