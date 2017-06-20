@@ -1,6 +1,8 @@
 # Database foreign keys
 require 'foreigner'
 require 'carrierwave'
+
+require 'socialization'
 begin
   require 'sunspot_rails'
 rescue LoadError
