@@ -5,7 +5,7 @@ class Mailboxer::Message < Mailboxer::Notification
   # method in gem socialization
   acts_as_mentioner
 
-  belongs_to :conversation, :class_name => "Mailboxer::Conversation", :validate => true, :autosave => true
+  belongs_to :conversation, :class_name => "Mailboxer::Conversation", :validate => true, :autosave => true, touch: true
   validates_presence_of :sender
 
   class_attribute :on_deliver_callback
